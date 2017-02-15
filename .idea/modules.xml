@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/GroovyDemo/GroovyDemo.iml" filepath="$PROJECT_DIR$/GroovyDemo/GroovyDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaDemo/JavaDemo.iml" filepath="$PROJECT_DIR$/JavaDemo/JavaDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ServletDemo/ServletDemo.iml" filepath="$PROJECT_DIR$/ServletDemo/ServletDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringProject.iml" filepath="$PROJECT_DIR$/SpringProject.iml" />
+    </modules>
+  </component>
+</project>

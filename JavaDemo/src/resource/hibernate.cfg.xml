@@ -1,0 +1,94 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL57InnoDBDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url"><![CDATA[ jdbc:mysql://localhost:3306/hibernate5?useUnicode=true&characterEncoding=utf8 ]]></property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">123123</property>
+        <!-- 设置隔离级别 1(repleate commit) 2(read commit) 4 8 -->
+        <property name="hibernate.connection.isolation">2</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <!--<property name="hibernate.hbm2ddl.auto">create</property>-->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- config C3PO -->
+        <!--<property name="c3p0.max_size">20</property>-->
+        <!--<property name="c3p0.min_size">4</property>-->
+        <!--<property name="c3p0.timeout">2000</property>-->
+        <!--<property name="c3p0.idle_test_period">2000</property>-->
+        <!--<property name="c3p0.max_statements">10</property>-->
+        <!--<property name="c3p0.acquire_increment">4</property>-->
+
+        <!-- config -->
+        <!--<property name="hibernate.jdbc.fetch_size">100</property>-->
+        <!--<property name="hibernate.jdbc.batch_size">30</property>-->
+
+        <!-- 开启二级缓存 ,但是hibernate没有提供二级缓存组件 常用的是echcache-->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <!-- 设置二级缓存的类,二级缓存只会缓存对象 -->
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+        <!-- 针对HQL语句的缓存,只会缓存-->
+        <property name="hibernate.cache.use_query_cache">true</property>
+        <!-- 设置echcache 的位置 在类(read_only)中开启二级缓存 -->
+        <property name="hibernate.cache.provider_configuration_file_resource_path">ehcache.xml</property>
+
+        <!-- 配置session管理方式,仅仅是模拟操作 -->
+        <property name="current_session_context_class">thread</property>
+
+
+        <!--<mapping package="com.yangyang.model"></mapping>-->
+
+        <!--<mapping class="com.yangyang.model.xml.News" />-->
+
+        <!-- annotation -->
+        <!--<mapping class="com.yangyang.model.annotation.User" />-->
+        <!--<mapping class="com.yangyang.model.annotation.Student" />-->
+        <!--<mapping class="com.yangyang.model.annotation.ClassRoom" />-->
+        <!--<mapping class="com.yangyang.model.annotation.Person" />-->
+        <!--<mapping class="com.yangyang.model.annotation.IdCard" />-->
+        <!--<mapping class="com.yangyang.model.annotation.Admin" />-->
+        <!--<mapping class="com.yangyang.model.annotation.Role" />-->
+        <!--<mapping class="com.yangyang.model.annotation.Teacher" />-->
+        <!--<mapping class="com.yangyang.model.annotation.Course" />-->
+        <!--<mapping class="com.yangyang.model.HQLDemo1.ClassRoom" />-->
+        <!--<mapping class="com.yangyang.model.HQLDemo1.Student" />-->
+        <!--<mapping class="com.yangyang.model.HQLDemo1.Special" />-->
+
+        <!--<mapping class="com.yangyang.model.Student" />-->
+        <!--<mapping class="com.yangyang.model.ClassRoom" />-->
+
+        <!--<mapping resource="/hbm/Paper.hbm.xml" />-->
+        <!--<mapping resource="/hbm/Worker.hbm.xml" />-->
+
+        <!-- many-to-one -->
+        <!--<mapping resource="/hbm/Customer.hbm.xml" />-->
+        <!--<mapping resource="/hbm/Order.hbm.xml" />-->
+        <mapping resource="/hbm/Employee.hbm.xml" />
+        <mapping resource="/hbm/Department.hbm.xml" />
+
+        <!-- 类级别的缓存 -->
+        <!--<class-cache class="com.yangyang.model.hqlDemo2.Department" usage="read-write" />-->
+        <!--<class-cache class="com.yangyang.model.hqlDemo2.Department" usage="read-only" />-->
+        <!--<class-cache class="com.yangyang.model.hqlDemo2.Employee" usage="read-only" />-->
+        <!--<collection-cache collection="com.yangyang.model.hqlDemo2.Department.employees" usage="read-only" />-->
+
+        <!-- one-to-one -->
+        <!--<mapping resource="/hbm/Depart.hbm.xml"/>-->
+        <!--<mapping resource="/hbm/Manager.hbm.xml"/>-->
+
+        <!-- many-to-many -->
+        <!--<mapping resource="/hbm/Category.hbm.xml"/>-->
+        <!--<mapping resource="/hbm/Person.hbm.xml"/>-->
+        <!--<mapping resource="/hbm/Person_joind.hbm.xml"/>-->
+        <!--<mapping resource="/hbm/Person_union.hbm.xml"/>-->
+
+        <!--<mapping resource="com/yangyang/model/User.hbm.xml" />-->
+        <!--<mapping resource="com/yangyang/model/Book.hbm.xml" />-->
+
+    </session-factory>
+</hibernate-configuration>
