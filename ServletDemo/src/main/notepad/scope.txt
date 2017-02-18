@@ -1,0 +1,5 @@
+
+9 scope
+request respone session application pageContext page out config exception
+
+4 scope applicationScope sessionScope requestScope pageScope

@@ -130,9 +130,24 @@
     <!--   utils     -->
     <guava.version>21.0</guava.version>
     <rxjava.version>1.2.6</rxjava.version>
+    <reactor-core.version>3.0.5.RELEASE</reactor-core.version>
 
   </properties>
   <dependencies>
+
+    <!-- reactor-core -->
+    <dependency>
+      <groupId>io.projectreactor</groupId>
+      <artifactId>reactor-core</artifactId>
+      <version>${reactor-core.version}</version>
+    </dependency>
+      <!-- reactor-test -->
+      <dependency>
+          <groupId>io.projectreactor.addons</groupId>
+          <artifactId>reactor-test</artifactId>
+          <version>${reactor-core.version}</version>
+      </dependency>
+
     <!-- junit -->
     <dependency>
       <groupId>junit</groupId>
