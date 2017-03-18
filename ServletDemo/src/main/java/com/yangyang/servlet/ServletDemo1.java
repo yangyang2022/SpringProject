@@ -1,7 +1,5 @@
 package com.yangyang.servlet;
 
-import com.yangyang.utils.Util;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +11,7 @@ import java.io.IOException;
 public class ServletDemo1 extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        response.getWriter().println(new Util().sayHello());
+
 
         //response.getWriter().println("hello servlet demo1 ");
         //AsyncContext ctx = request.startAsync();

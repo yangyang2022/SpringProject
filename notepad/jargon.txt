@@ -1,0 +1,279 @@
+
+事务的ACID:原子性（A）一致性（C）隔离性（I） 持久性（D）
+
+spring web flow / spring web service / spring security / spring integration
+spring batch / spring data / spring social /spring mobile /spring for android
+spring boot
+
+J2EE    java 2 enterprise edition
+POJO    plain old java object
+EJB     enterprise java bean
+JDO     java data object
+DI      dependency injection
+AOP     aspect oriented programing
+
+JMS     java message service             Hornetq ActiveMQ
+WSDL    web service description language
+JAX     java xml
+JAXB    Java xml binding
+JAX-WS  JavaTM API forXML-Based Web Services 又叫JAX-RPC（远程调用），顾名思义就是基于Web Services
+JAX-RS  JavaTM API forRESTful Web Services 即使用REST风格
+
+JNDI    java native d interface
+REST    restful
+RMI     remote method invocation         Hessian Burlap JAX-WS HTTP invoker
+STOMP
+RPC     remote procedure call
+Scale up 指增加硬件来提升性能
+
+CDI     Contexts Dependency Injection，和Spring的IOC差不多的东西，就是可以在组件中通过注解注入上下文、请求和响应等。
+JTA     即Java Transaction API，使用过Hibernate和EJB的应该知道，就是事务处理，JTA依赖于所处的容器，
+        如果不是分布式开发的话，我们一般使用本地事务，即是数据库本身的事务处理。
+JPA     即Java Persistence API，就是最常用的持久化技术，原本属于EJB中的部分，EJB3.0之后分离出来，作为一个独立的规范。
+        作为一种ORM技术，JPA提供了基本的统一 标准，现在JPA的草案处于维护阶段，对应的Hibernate框架的某些版本也处于Final版本。
+
+IDL      Interface  Definition  Language  接口定义语言
+J2EE CA  J2EE Connector Architecture J2EE 连接器架构
+JAAS     The Java Authentication and Authorization Service  java认证授权服务
+JACC     Java Authorization Contract with the Container??Java容器授权合约
+JATMI    Java Application-to-Transaction Monitor Interface?Java 应用－事务监控接口
+JBI      Java Business Integration Java业务集成
+JCA      J2EE Connector Architecture Java连接器架构
+JCP      Java Community Process Java组织
+JDBC     Java Database Connectivity
+JDO      Java Data Objects
+JDK      Java Development Kit
+JEMS     JBoss Enterprise Middleware Suite Jboss企业中间件
+JMS      Java Messaging Service Java消息服务
+JMX      Java Management extensions Java管理扩展
+JNDI     Java Naming and Directory Interface Java命名与目录借口服务
+JPDA     Java Platform Debugger Architecture??Java平台调试器架构
+JRMP     Java Remote Message Protocol
+JSP      Java Server Page
+JSTL     Java Standard Tag Library Java 标准标签库
+JTS      Java  Transaction  Service  Java事务服务
+JTA      Java Transaction API Java事务API
+JVM      Java Virtual Machine Java虚拟机
+MVC      Model-View-Control
+NIC      Network Interface Card
+O/R      Object-Relational
+OTS      Object Transactional Services
+PKI      Public Key Infrastructure
+POJO     Plain Old Java Object
+RMI      Remote  Method  Invocation  远程方法调用
+
+RMI/IIOp RMI protocol over IIOP
+
+EJB分为三种:
+Session   Bean(会话BEAN)
+Entity    Bean(实体BEAN)
+Message   Driver  Bean(消息驱动BEAN)
+
+Session  Bean分为两种:
+Stateless  Session  Bean(无状态会话Bean)
+Statefull  Session  Bean(有状态会话Bean)
+
+Entity  Bean分为两种:
+CMP        Container  Manager  Persistence(容器管理持久性)
+BMP        Bean  Manager  Persistence(Bean管理持久性)
+
+其他缩写名词:
+BPEL       Business Process Execution Language 业务流程执行语言
+BPM        Business Process Management 业务流程管理
+DAO        Database  Access  Object  数据库访问对象
+DOM        Document Object Model  文档对象模型
+DTD        Document Type Definition  文档类型定义
+DTO        Data  Transport  Object  数据传输对象
+ESB        EnterpriseService Bus 企业服务总线
+POJO       Proterozoic  Java  Object  Java原生对象
+SAAJ       SOAP with Attachments API for JavaTM  Java 的带附件的SOAP API
+SAX        Simple API for XML Parsing XML解析处理简单API
+SAML       Security Assertions markup Language
+SGML       Standard Generalized Markup Language  SAML（Security Assertion Markup Language ）：安全断言标记语言
+SLA        Service Level Agreement服务级别协议
+SNMP       Simple Network Management Protocol：简单网络管理协议
+SOA        Service Oriented Architecture
+SOAP       Simple Object Access Protocol
+SPENGO     Simple and Protected GSS-API Negotiation Mechanism 简单和受保护的GSS-API协商机制
+SPI        Service Provider Interface ）：服务提供模块接口
+SSL        Secure Socket Layer）:安全套接字层
+SSO        Single Sign-on）：单点登录
+SSPI       Security Service Provider Interface）：安全服务提供模块接口
+StAX       Streaming API for XML）：XML 的流化API
+UDDI       Universal Description,Discovery,and Integration
+VO         Value  Object  值对象
+WFMS       workflow management system
+WSDL       Web Service Description Language
+WSEE       Web Services Enterprise Edition
+WSRP       OASIS Web Service for Remote Portlets
+XA         Extended Architecture 扩展架构
+XACML      XML Access Control Markup Language ）：XML 访问控制标记语言
+XSLT       XML Stylesheet Language for Transformations
+
+
+====================================== 服务框架的实现 ======================================
+============================= 服务框架使应用从集中式走向分布式 ==================================
+
+分布式架构图: 在webapp和service之间通过服务框架解决了集群间的通信问题
+在应用和数据之间通过分布式数据层让应用可以方便的访问已被分库的数据库节点
+数据迁移和复制可以帮助我们跟好的根据业务需求完成数据的分布
+软负载中心和持久化配置管理支撑系统的作用
+===================== 分布式jargon ===============   -------------------------------------------------------
+SPOF    Single Point of Failure    单点故障          | 消息中间件|搜索|缓存|分布式存储|webapp | webapp | 页面缓存 |
+                                                    |         |    |   |        |    服务框架     | 软负载中心|
+                                                    ------------------------------service / service--------|
+                                                    |         |    |   |        |   分布式数据层    |持久化管理|            |
+网站的变化的几大特点:                                   ------------------------------------------------------|
+应用的拆分 -> 服务框架帮助我们进行应用拆分,完成服务化                                   |   主库  主库   主库   主库  |                     |
+服务的拆分 ->                                                                     |   数据复制 / 迁移          |             |
+数据的拆分 -> 数据层帮助我们进行数据的拆分几整个数据的管理,扩容,迁移的工作                 |---------------------------
+应用的解耦 -> 消息中间件帮助我们完成应用之间的解耦
+
+MOM: Message-oriented middleware is software infrastructure focused on sending
+and receiving message between distributed systems.
+
+中间件的好处: 异步 和 解耦
+
+中间件定义: 不是操作系统的一部分,不是数据库管理系统,也不是软件应用的一部分,而是能够
+让软件开发者方便的处理通信,输入,输出,能够专注在他们自己的应用的部分.
+
+中间件分类:
+(1)远程过程调用和对象访问中间件:主要解决分布式环境下应用的互相访问问题,应用服务化的基础
+(2)消息中间件:解决应用之间的消息传递,解耦,异步的问题
+(3)数据访问中间件:解决应用访问数据库的共性问题组件.
+
+JVM ==> source -> complier -> java byte code -> window JVM/Linux JVM
+
+<-老年代-><------- young(新生代)--------><-----Tenured(持久带) -->
+  Perm   | eden | survivor | survivor | ---------------------- |
+
+Method area | native area |　Stack area  | Heap area  | register area |
+
+锁的注意点: synchronized 和volitile 都有可见性
+int i1;pulic int geti(){return i1;}
+volatile int i2;public int geti2(){return i2;}
+int i3;public synchronized int geti3(){return i3;}
+--> geti1 获取的是当前线程的副本,这个值不一定是最新的
+    i2 有volatile修饰,变量只会放在主存,得到的值一定是最新的,
+    geti3 应为有synchronized修饰,保证了线程的本地副本与主存同步,也是最新的值
+
+
+
+
+事物: 2PC(两阶段提交) 最终一致性 BASE CAP Paxos
+
+session问题解决方案:
+1: session sticky: session放在均衡负载器上进行转发
+2: session replication : application server session replication
+3: session 集中存储: session放在一台服务器上,每次请求都去服务器上去找session(有网络延迟和风险较大)
+4: cookie based: session数据放在cookie里面带入服务器(有一定的安全风险)
+--- 一般来说使用 session sticky and session集中式存储
+
+分布式存储: 分布式文件系统 分布式Key-Value系统 分布式数据库
+
+数据库垂直拆分: 专库专用 问题: 单机中跨业务的事物 解决: (1)使用分布式事物但是性能要低于之前的单机事物
+(2)去掉事物或不去追求强食物支持,则原来在单库中可以使用的表关联的查询也需要改变实现
+数据库水平拆分: 把同一个表的数据拆到两个数据库中,与读写分析解决的是读压力大的问题对数据量大的不起作用
+垂直拆分是将 不同的表 拆到不同的数据库中/水平拆分是将 同一个表 拆到不同的数据库中(然后合并就是原来的表了)
+
+====================================== 分布式数据访问层 ======================================
+======================================  ======================================
+一般情况下减少数据库压力方法:
+1: 优化应用 2: 看看其他方法例如缓存/加搜索引擎 3: 数据和访问分开,分开支持
+垂直拆分影响: (1)单机的ACID保证被打破了 (2)一些join操作变得比较困难,可能在两个库中(3)考外键去进行约束的场景受影响
+水平拆分影响: 同垂直拆分影响 (4)依赖单库的自增序列生成唯一ID受影响(5)针对单个逻辑意义上的表查询要垮库了
+同时受影响的还有 触发器和存储过程
+分布式事物:是指事物的参与者,支持事物的服务器,资源服务器以及事物管理器分别位于分布是不同的节点上,传统的事物在单机上完成,
+而分布式事物再多个节点上完成
+
+CAP理论:
+consistence:数据一致性(C) all nodes sess the same data at the same time,即所有节点在同一时间读到同样的数据,
+所有节点会同事看到这个新的节点
+availability:数据可用性(A) 保证无论是成功还是失败,每个请求都能收到一个反馈,重点是系统一定要有响应
+partition-tolerance:(P)分区容忍性,系统有部分问题或有消息丢失,但系统仍能够继续运行,就是系统的一部分出现问题仍能够工作
+
+CA :放弃分区容忍性,传统单机数据库
+AP :放弃一致性,NOSQL的选择
+CP :放弃可用性,网络有问题会让整个系统不可用
+
+BASE 模型:
+Basically available:基本可用,允许分区失败
+soft state: 软状态,接受一段时间的状态不同步
+eventually consistent:最终一致性,保证最终数据的状态是一致的
+
+2PC:two phase commitment protocol两阶段提交协议,在单机数据库系统上面完成相关的数据操作之后就会直接提交或回滚,
+而在分布式中增加了准备阶段 prepare -> commit (必须两阶段都成功才算成功否则回滚)
+
+Paxos: 他是一个比两阶段提交要轻量的保证一致性协议
+分布式系统节点之间交换信息:(1)通过共享内存使用同一份数据 (2)通过消息传递来完成消息的传递
+
+
+====================================== 消息中间件 ==================================
+====================================== 应用解耦和异步是主要特点 =======================
+
+message-oriented middleware(MOM) is software infrastructure focused on sending and receiving
+messages between distributed systems
+从传统意义上来说,消息中间件为我们带来了异步的特性,对系统进行了解耦
+
+JMS 是java message service是javaee中关于消息的规范,hornetq and activeMQ是这个规范的实现
+适用于企业内部和一些小型系统,而大型系统不合适
+中间件可以使应用解耦和异步,此外还注重消息的顺序性,扩展性,可靠性,业务操作与消息发送一致性以及多集群订阅者等问题
+
+消息发送一致性是指如果业务操作成功消息一定能发出去,业务操作失败消息一定发不出去
+JMS中的要素:
+Destination:是指消息所走通道的目标定义,也就是用来定义消息从发送端发出后要走的通道,而不是最终接收方,属于管理类的对象
+ConnectionFactory:创建连接的对象,属于管理类
+Connection:连接接口,创建session
+Session: 会话接口,消息发送和接受以及消息对象本省都是有这个对象创建
+MessageConsumer:订阅消息并处理消息的对象
+MessageProducer:用来发送消息的对象
+XXXMessage:各种类型的消息对象,ByteMessage,MapMessage,ObjectMessage,StreamMessage,TextMessage
+
+JMS模型分为Topic and Queue两种,上述都有对应的子接口,Queue模型(PTP-Domian) Topic模型(Pub/Sub Domain)
+
+此外在JMS api中还有很多XA开头的接口,他们是支持XA协议的接口(分布式事物协议)
+这里事物控制在session上面 session由connection创建 ,connection由connectionFactory创建
+所以这三个接口需要XA
+XAConnectionFactory      ----- ConnectionFactory
+XAQueueConnectionFactory ----- QueueConnectionFactory
+XATopicConnectionFactory ----- TopicConnectionFactory
+XAConnection             ----- Connection
+XAQueueConnection        ----- QueueConnection
+XATopicConnection        ----- TopicConnection
+XASession                ----- Session
+XAQueueSession           ----- QueueSession
+XATopicSession           ----- TopicSession
+
+JMS 中对应的消息:
+ConnectionFactory -> Connection -> Session -> Message
+Destination + Session -> MessageConsumer
+Destination + Session -> MessageProducer
+
+在JMS中如果不使用XA系列的接口实现,那么我们无法直接得到发送消息给消息中间件以及业务操作这两个事情的事物保证
+带来的问题: (1)引入了分布式事物,增加了复杂性 (2)对业务操作有限制,要求业务操作的资源必须支持XA协议,才能与发送消息一起来做分布式
+
+
+ ------------------------------------------
+ |本地事务区           (4)业务操作            |
+ |    应用(消息发布者) --------->   业务操作   |
+ |------------------------------------------
+ |    |(1)发送     *(3)返回消息   | (5)发送   |
+ |    |消息,状态    | 入库结果     |  业务处理  |
+ |    |为待处理     | (成功/失败)  | 结果      |
+ |    |            |            *           |
+ |    *                                     |
+ |------------------------------------------|
+ |                   (2)消息存储             |
+ |                  --------------->        |
+ |        消息中间件  <-------------- 消息存储 |
+ |                   (6)更新消息状态,业务成功,  |
+ |                  消息为发送状态,失败,消息删除 |
+ | 本地事物区                                 |
+ |-------------------------------------------
+
+
+
+
+
+
+

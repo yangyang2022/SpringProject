@@ -1,0 +1,19 @@
+body{
+    background-color: #cccccc;
+    font-family: Arial,Helvetica,sans-serif;
+}
+.bookheadline{
+    font-size: 12pt;
+    font-weight: bold;
+}
+.bookdescription{
+    font-size: 10pt;
+}
+label{
+    font-weight: bold;
+}
+.oops{
+    font-size: 50pt;
+    color: red;
+    width:100px;height:80px;position:absolute;top:5%;left:50%;margin-left:10px;margin-top:40px
+}

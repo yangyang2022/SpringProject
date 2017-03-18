@@ -11,6 +11,8 @@
     <title>Title</title>
 </head>
 <body>
-    success page!!!
+    redirect: success page!!!<br/>
+    Username: ${user.username}<br/>
+    Password: ${user.password}
 </body>
 </html>

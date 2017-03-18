@@ -13,6 +13,7 @@
 </head>
 <body>
 <sf:form commandName="book" action="save" method="post">
+    <sf:errors path="*" /><br/>
     ISBN: <sf:input path="isbn" /><sf:errors path="isbn"/><br/>
     TITLE: <sf:input path="title" /><sf:errors path="title"/><br/>
     AUTHOR: <sf:input path="author" /><sf:errors path="author" /><br/>

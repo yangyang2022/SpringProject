@@ -1,0 +1,15 @@
+
+
+1:　spring container 负责创建对象并装配他们,配置和管理他们的生命周期
+2: 有多个容器,bean factory(已过时) 和application Context 两种
+ClassPathXmlApplicationContext/FileSystemXmlApplicationContext
+
+3: spring创建bean的步骤: spring对bean实例化 -> spring将值和bean的引用注入到bean对应的属性中
+-> 调用beanNameAware的setBeanName()方法 -> 调用BeanFactoryAware 的setBeanFactory()方法
+-> 调用ApplicationContextAware 的setApplicationContext()方法
+-> 调用BeanPostProcessor的初始化方法 -> 调用自定义初始化方法 -> 调用BeanPostProcessor的初始化后的方法
+-> bean 可以用了 ===
+---------------- container 关闭了 -----------------
+调用DisposableBean的destroy()方法 -> 调用自定义的销毁方法
+
+4:

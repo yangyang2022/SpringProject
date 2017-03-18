@@ -16,7 +16,7 @@
         ProductName: ${product.name}<br/>
         Desc: ${product.description}<br/>
         Price: ${product.price}<br/>
-    <h2>Follow File are upload successfully</h2>
+    <h2>Follow File are upload successfully!${hello}</h2>
     <ol>
         <c:forEach items="${product.images}" var="image">
             <li>${image.originalFilename}

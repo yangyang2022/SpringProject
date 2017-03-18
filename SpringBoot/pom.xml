@@ -1,0 +1,249 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>SpringProject</artifactId>
+        <groupId>com.yangyang</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>SpringBoot</artifactId>
+    <packaging>war</packaging>
+    <name>SpringBoot Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+
+    <dependencies>
+
+        <!-- com.alibaba/fastjson -->
+        <!--<dependency>-->
+            <!--<groupId>com.alibaba</groupId>-->
+            <!--<artifactId>fastjson</artifactId>-->
+            <!--<version>${fastjson.version}</version>-->
+        <!--</dependency>-->
+
+        <!-- spring-jdbc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- com.h2database/h2 -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
+        </dependency>
+
+        <!-- spring-boot -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <!-- spring-boot-starter-test  -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <!-- spring-boot-starter -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>${spring-boot.version}</version>
+            <exclusions>
+                 <exclusion>
+                     <groupId>org.springframework.boot</groupId>
+                     <artifactId>spring-boot-starter-logging</artifactId>
+                 </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- spring-boot-starter-web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <!-- spring-boot-autoconfigure -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <!-- spring-boot-starter-data-jpa -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <!-- spring-boot-configuration-processor -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <!-- spring-boot-actuator -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-actuator</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <!-- spring-boot-starter-actuator -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <!-- spring-boot-starter-logging -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+
+        <!-- spring-boot-starter-security -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+
+        <!-- tomcat 支持 jsp -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <!-- tomcat-embed-jasper -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
+            <version>8.5.11</version>
+        </dependency>
+
+        <!-- spring-boot-devtools -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+            <!-- optional=true,依赖不会传递，该项目依赖devtools；之后依赖myboot项目的项目如果想要使用devtools，需要重新引入 -->
+            <version>${spring-boot.version}</version>
+        </dependency>
+
+
+        <!-- thymeleaf -->
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf</artifactId>
+            <version>${thymeleaf.version}</version>
+        </dependency>
+        <!-- thymeleaf-spring4 -->
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring4</artifactId>
+            <version>${thymeleaf.version}</version>
+        </dependency>
+
+        <!-- spring-boot-starter-thymeleaf -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <!-- thymeleaf-layout-dialect -->
+        <dependency>
+            <groupId>nz.net.ultraq.thymeleaf</groupId>
+            <artifactId>thymeleaf-layout-dialect</artifactId>
+            <version>2.2.0</version>
+        </dependency>
+
+        <!-- thymeleaf-extras-springsecurity3 -->
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity3</artifactId>
+            <version>3.0.2.RELEASE</version>
+        </dependency>
+
+        <!-- groovy-all -->
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>${groovy.version}</version>
+        </dependency>
+
+
+        <!--gorm-hibernate4-spring-boot-->
+        <!--gorm-mongodb-spring-boot-->
+        <!-- grails -->
+        <!--<dependency>-->
+            <!--<groupId>org.grails</groupId>-->
+            <!--<artifactId>gorm-hibernate4-spring-boot</artifactId>-->
+            <!--<version>1.1.0.RELEASE</version>-->
+        <!--</dependency>-->
+
+        <!-- grails-core -->
+        <!--<dependency>-->
+            <!--<groupId>org.grails</groupId>-->
+            <!--<artifactId>grails-core</artifactId>-->
+            <!--<version>3.2.7</version>-->
+        <!--</dependency>-->
+        <!--&lt;!&ndash; org.grails/grails-web &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.grails</groupId>-->
+            <!--<artifactId>grails-web</artifactId>-->
+            <!--<version>3.2.7</version>-->
+        <!--</dependency>-->
+        <!--&lt;!&ndash; org.grails/grails-spring &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.grails</groupId>-->
+            <!--<artifactId>grails-spring</artifactId>-->
+            <!--<version>3.2.7</version>-->
+        <!--</dependency>-->
+        <!--&lt;!&ndash; grails-bootstrap &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.grails</groupId>-->
+            <!--<artifactId>grails-bootstrap</artifactId>-->
+            <!--<version>3.2.7</version>-->
+        <!--</dependency>-->
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.grails/grails-test &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.grails</groupId>-->
+            <!--<artifactId>grails-test</artifactId>-->
+            <!--<version>3.2.7</version>-->
+        <!--</dependency>-->
+        <!--&lt;!&ndash; grails-plugin-controllers &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.grails</groupId>-->
+            <!--<artifactId>grails-plugin-controllers</artifactId>-->
+            <!--<version>3.2.7</version>-->
+        <!--</dependency>-->
+        <!--&lt;!&ndash; grails-datastore-gorm-plugin-support &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.grails</groupId>-->
+            <!--<artifactId>grails-datastore-gorm-plugin-support</artifactId>-->
+            <!--<version>6.0.9.RELEASE</version>-->
+        <!--</dependency>-->
+
+
+
+
+        <!--&lt;!&ndash; grails-datastore-gorm-hibernate5 &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.grails</groupId>-->
+            <!--<artifactId>grails-datastore-gorm-hibernate5</artifactId>-->
+            <!--<version>6.0.9.RELEASE</version>-->
+        <!--</dependency>-->
+
+    </dependencies>
+
+
+    <build>
+        <finalName>SpringBoot</finalName>
+    </build>
+</project>

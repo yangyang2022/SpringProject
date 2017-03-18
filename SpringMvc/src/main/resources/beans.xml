@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <!--<context:property-placeholder location="app.properties" />-->
+    <context:component-scan base-package="com.yangyang" />
+
+    <aop:aspectj-autoproxy />
+    <bean id="logCalcu" class="com.yangyang.aspect.LogCalcu" />
+    <aop:config>
+        <aop:pointcut id="log" expression="execution(* com.yangyang.concert.ICalcu.*(..))" />
+        <aop:aspect id="log" ref="logCalcu" order="1">
+            <aop:before method="logBefore" pointcut-ref="log" />
+            <aop:after method="logAfter" pointcut-ref="log" />
+        </aop:aspect>
+
+        <aop:aspect id="log2" ref="logCalcu" order="2">
+            <aop:after-returning method="someothor" pointcut-ref="log" />
+        </aop:aspect>
+    </aop:config>
+</beans>
+

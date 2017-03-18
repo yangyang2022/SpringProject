@@ -6,13 +6,23 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="HibernateDemo" />
         <module name="JavaDemo" />
+        <module name="MongoDemo" />
         <module name="ServletDemo" />
+        <module name="SpringBoot" />
+        <module name="SpringData" />
+        <module name="SpringMvc" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="HibernateDemo" target="1.8" />
       <module name="JavaDemo" target="1.8" />
+      <module name="MongoDemo" target="1.8" />
       <module name="ServletDemo" target="1.8" />
+      <module name="SpringBoot" target="1.8" />
+      <module name="SpringData" target="1.8" />
+      <module name="SpringMvc" target="1.8" />
       <module name="SpringProject" target="1.8" />
     </bytecodeTargetLevel>
   </component>

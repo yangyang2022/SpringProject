@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+</head>
+<body>
+    <h2>Your Reading List</h2>
+    <div th:unless="${#lists.isEmpty(books)}">
+        <dl th:each="book:${books}">
+            <dt class="bookheadline">
+                <span th:text="${book.title}">Title</span>by
+                <span th:text="${book.author}">Author</span>
+                (ISBN:<span th:text="${book.isbn}">ISBN</span>)
+            </dt>
+            <dd class="bookdescription">
+                <span th:if="${book.description}" th:text="${book.description}">Description</span>
+                <span th:if="${book.description eq null}">No Description</span>
+            </dd>
+            <dd>
+                <hr/>
+                推荐链接:<a th:href="'http://www.baidu.com/${book.isbn}/tag=yangyang'" th:text="${book.title}">Title</a>
+            </dd>
+        </dl>
+    </div>
+    <hr/>
+    <h3>Add a book</h3>
+    <form method="post">
+        <label for="title">Title:</label>
+        <input type="text" name="title" size="50" /><br/>
+        <label for="author">Author:</label>
+        <input type="text" name="author" size="50" /><br/>
+        <label for="isbn">ISBN:</label>
+        <input type="text" name="isbn" size="15" /><br/>
+        <label for="description">Description:</label><br/>
+        <textarea name="description" cols="80" rows="5"></textarea><br/>
+
+        <input type="submit" value="submit">
+    </form>
+
+    <hr/>
+</body>
+</html>  

@@ -1,0 +1,14 @@
+
+@AssertTrue 注解类型必须为boolean并且返回true
+@AssertFalse
+@DecimalMax 注解元素必须为数字,并且它的值必须要小于或等于给定的BigDecimalString得值
+@DecimalMin
+@Digits 注解必须为数字,并且它的值必须有指定的位数
+@Future 注解元素是一个将来的日期
+@Max
+@Min
+@NotNull
+@Null
+@Past
+@Pattern
+@Size 注解必须是String,集合,数组,并且长度要符合给定的范围

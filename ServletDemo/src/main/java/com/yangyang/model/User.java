@@ -1,12 +1,19 @@
 package com.yangyang.model;
 
-import com.yangyang.interfaces.PublicView;
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 public class User {
     private Integer id;
 
-    @PublicView
+    @NotNull
+    @Length(min = 4,max = 50)
     private String username;
+
+    @Pattern(regexp = "\\d+")
+    @Length(min = 4,max = 50)
     private String password;
 
     public User() {

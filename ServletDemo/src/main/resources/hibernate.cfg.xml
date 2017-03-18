@@ -68,8 +68,8 @@
         <!-- many-to-one -->
         <!--<mapping resource="/hbm/Customer.hbm.xml" />-->
         <!--<mapping resource="/hbm/Order.hbm.xml" />-->
-        <mapping resource="/hbm/Employee.hbm.xml" />
-        <mapping resource="/hbm/Department.hbm.xml" />
+        <!--<mapping resource="/hbm/Employee.hbm.xml" />-->
+        <!--<mapping resource="/hbm/Department.hbm.xml" />-->
 
         <!-- 类级别的缓存 -->
         <!--<class-cache class="com.yangyang.model.hqlDemo2.Department" usage="read-write" />-->

@@ -1,0 +1,29 @@
+
+####################### spring security ###################
+1: 默认用户名user 密码在日志里面生成
+2: 自定义一些登录页面/数据库/LDAP(lightweight directory access)
+3:
+4: 错误试图提供的属性:
+  - timestamp 错误发生的时间
+  - status http状态码
+  - error 错误原因
+  - exception 异常的类名
+  - message 异常消息
+  - errors BindingResults异常里面的各种错误(如果这个错误是由异常引起的)
+  - trace 异常跟踪消息(如果这个错误是由异常引起的)
+  - path 错误发生时请求的URL路径
+
+#################### spring boot config ###################
+1: application.properties 放入一些配置文件
+2: static文件夹放 javascript 样式表 图片
+3: template文件夹放 用于呈现模型数据的模板
+4:
+
+####################### spring boot grails #################
+GORM: Groovy object relation mapping
+GSP:  Groovy Server Page
+
+####################### spring boot starter #################
+
+
+

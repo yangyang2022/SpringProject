@@ -1,0 +1,57 @@
+springmvc中的servlet一共有三个层次 dispartchservlet -> frameworkservlet -> httpservletBean
+
+ httpServletBean 直接继承httpServlet 将servlet中的相应的参数设置到相应的属性,
+ 主要参与创建没有请求处理
+ FrameWorkServlet 初始化了webApplicationContext
+ DispartchServlet 初始化了自身的9个组件
+    doservice方法对request方法做一些处理,如果是include方法会做快照备份再交给doDispatch
+    doDispatch: (1)根据request找到相应的handler
+    (2) 根据handler找到相应的handlerAdapter
+    (3) 用handlerAdapter 处理handler
+    (4) 调用 processDispatchResult方法处理上面处理之后的结果
+    (包括找到view并渲染给yonghu)
+
+ Handler: 处理器,@GetMapping()就是一个handler
+ HandlerMapping: 为request查找handler,interceptor
+ HandlerAdapter: 适配器,handler可以是任意形式,只要能处理就ok
+
+ 通俗点就是:handler就是工具,HandlerMapping就是干活时查找工具.HandlerAdapter就是干活的人
+ view就是交报告的模板,内容就是model里面的数据,viewResolver就是查找某个模板
+
+ 连在一起就是 handlerMapping找到干活的handler,找到使用handler的handlerAdapter,
+ 让handlerAdapter使用handler干活,
+ 干完使用viewReslover找个模板写个报告交上去(展示view给用户)
+
+ 修改Local --- 使用interceptor -- 链接地址: xxx?locale=en
+ <mvc:interceptors>
+         <mvc:interceptor>
+             <mvc:mapping path="/*"/>
+             <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+         </mvc:interceptor>
+ </mvc:interceptors>
+
+
+ @ControllerAdvice 作用: 将@InitBind @ModelAttribute 注释的方法放进去 @CtrollerAdvice 里面的的属性
+ 可以指定特定的package 而不是所有的package
+
+ RequestMappingHandlerAdapter:解析参数 执行请求 处理返回值
+ 1 :解析参数 从Model中来,从request中来 ,前者通过FlashMapManager and ModelFactory管理
+ 2 : 执行请求 用的是handlerMethod 的子类 ServletInvocableHandlerMethod(实际上执行的是InvocationHandlerMethod)
+ 3: 处理返回值 使用HandlerMethodReturnValueHandler进行解析的,不同类型返回值对应不同的HandlerMethodRetrunValueHandler
+ 整个过程ModelAndViewContainer起着参数传递的作用
+
+ ViewResolver: 根据试图名和Local解析出试图
+
+ @ExceptionHandler
+ 解析异常: 1 给ModelAndView设置相应的内容 2: 设置response的相关属性
+
+ <mvc:annotation-driven>会自动将ExceptionHandlerExceptionResolver DefaultHandlerExceptionResolver
+ ResponseStatusExceptionResolver 配置到springmvc中 ...
+ 注意他只能处理请求过程中抛出的异常,异常本身抛出的异常和试图抛出的异常她是不能处理的
+
+ spring整合hibernate中注意的问题: 步骤 1: 创建sessionFactory 2:创建txManager 3: aop声明式事物
+ 1: 使用spring为hibernate创建sessionFactory
+ 2: 使用spring的声明式事物
+ 3: 数据源配置到IOC容器中 关联的.hbm.xml也在ioc容器中配置SessionFactory时配置
+ 4: 仅在hibernate文件中配置基本属性,例如 方言,格式化 生成数据表侧略 以及二级缓存等
+

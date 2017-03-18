@@ -1,0 +1,2 @@
+<?xml version='1.0'?>
+<languages xmlns:computer='Computer'><!--Create using StremingMarkupBuilder --><computer:language name='C++'><author>Stroustrup</author></computer:language><computer:language name='Java'><author>Gosling</author></computer:language><computer:language name='Lisp'><author>McCarthy</author></computer:language><computer:language name='Modila-2'><author>Wirth</author></computer:language><computer:language name='Oberon-2'><author>Wirth</author></computer:language><computer:language name='Pascal'><author>Wirth</author></computer:language></languages>

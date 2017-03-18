@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GroovyDemo/GroovyDemo.iml" filepath="$PROJECT_DIR$/GroovyDemo/GroovyDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HibernateDemo/HibernateDemo.iml" filepath="$PROJECT_DIR$/HibernateDemo/HibernateDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaDemo/JavaDemo.iml" filepath="$PROJECT_DIR$/JavaDemo/JavaDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MongoDemo/MongoDemo.iml" filepath="$PROJECT_DIR$/MongoDemo/MongoDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/ServletDemo/ServletDemo.iml" filepath="$PROJECT_DIR$/ServletDemo/ServletDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringBoot/SpringBoot.iml" filepath="$PROJECT_DIR$/SpringBoot/SpringBoot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringData/SpringData.iml" filepath="$PROJECT_DIR$/SpringData/SpringData.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringMvc/SpringMvc.iml" filepath="$PROJECT_DIR$/SpringMvc/SpringMvc.iml" />
       <module fileurl="file://$PROJECT_DIR$/SpringProject.iml" filepath="$PROJECT_DIR$/SpringProject.iml" />
     </modules>
   </component>

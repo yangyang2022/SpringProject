@@ -1,0 +1,8 @@
+---
+spring:
+  profiles:
+  datasource:
+    url: jdbc:mysql:///jpa
+    password: 123123
+  jpa:
+    database-platform: hibernate

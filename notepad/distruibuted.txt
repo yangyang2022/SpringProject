@@ -1,0 +1,8 @@
+
+distributed:
+    a distributed system is one in which components located at networked computers
+ communicate and coordinate their actions pnly by passing messages
+
+重点: 1:组件分布在网络计算技上 2: 组件之间仅仅通过消息传递来通信并协调行动
+
+

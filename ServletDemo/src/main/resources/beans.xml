@@ -2,8 +2,9 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:task="http://www.springframework.org/schema/task"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+       xmlns:task="http://www.springframework.org/schema/task" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <context:annotation-config/>
     <context:component-scan base-package="com.yangyang">
@@ -29,4 +30,46 @@
     <!--<task:scheduler id="scheduler" pool-size="10"/>-->
     <!--<task:annotation-driven executor="executor" scheduler="scheduler" />-->
 
+    <!-- hibernate instance ==> config sessionFactory and declare transaction -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="classpath:beans-hibernate.xml" />
+        <property name="packagesToScan" value="com.yangyang.hibernate.model" />
+    </bean>
+
+    <bean id="hibernateTransactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <tx:advice id="hibernateTx" transaction-manager="hibernateTransactionManager">
+        <tx:attributes>
+            <tx:method name="add*" />
+            <tx:method name="del*" />
+            <tx:method name="update*" />
+            <tx:method name="*" read-only="true" />
+        </tx:attributes>
+    </tx:advice>
+    
+    <!--1 jdbc- transactionManager -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    <!-- 启用事物注解-->
+    <!--<tx:annotation-driven />-->
+
+    <!--2 jdbc-配置事物属性-->
+    <tx:advice id="jdbcTx" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="add*"/>
+            <tx:method name="update*" />
+            <tx:method name="del*" />
+            <tx:method name="*" read-only="true" />
+        </tx:attributes>
+    </tx:advice>
+    <!--3 配置事物切入点 -->
+    <aop:config>
+        <aop:pointcut id="jdbcPointCut" expression="execution(* com.yangyang.service.*.*(..))"/>
+        <aop:pointcut id="hibernatePointCut" expression="execution(* com.yangyang.hibernate.service.*.*(..))" />
+        <aop:advisor advice-ref="hibernateTx" pointcut-ref="hibernatePointCut" />
+        <aop:advisor advice-ref="jdbcTx" pointcut-ref="jdbcPointCut" />
+    </aop:config>
 </beans>
